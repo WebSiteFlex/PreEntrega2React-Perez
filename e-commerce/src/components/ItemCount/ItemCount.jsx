@@ -18,9 +18,9 @@ const ItemCount = ({ stock, onAdd, start }) => {
     return (
         <section className={classItem.containerCounter}>
             <div className={classItem.containerImportant}>
-                <button onClick={decrement}>-</button>
-                <h4>{amount}</h4>
-                <button onClick={increment}>+</button>
+                <button onClick={decrement} className={classItem.bLeft}>-</button>
+                <h4 className={classItem.h4}>{amount}</h4>
+                <button onClick={increment} className={classItem.bRight}>+</button>
             </div>
 
             <div className={classItem.containerAddCart}>

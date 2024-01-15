@@ -1,8 +1,9 @@
 // import IconCart from "./components/IconCart/IconCart";
 import NavBar from "./components/NavBar/NavBar"
-import ItemCount from "./components/ItemCount/ItemCount"
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Swal from 'sweetalert2'
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import './App.css'
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
   return (
     <>
       <NavBar></NavBar>
-      <ItemCount start={1} disabled={()=>
+      <ItemListContainer></ItemListContainer>
+      {/* <ItemCount start={1} disabled={()=>
         !start ? Swal.fire({
           title: "Opps...",
           text: "there isn´t any stock",
@@ -22,7 +24,9 @@ function App() {
         text: quantity,
         icon: "success"
       })
-       }></ItemCount>
+       }></ItemCount> */}
+    
+      
     </>
   )
 }
