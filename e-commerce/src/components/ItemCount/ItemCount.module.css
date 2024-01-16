@@ -1,12 +1,11 @@
 .containerCounter{
-    width: 300px;
+    width: 200px;
     height: auto;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:center ;
-     border: 1px solid black;
      border-radius: 24px 23px / 22px 50px;
      cursor: pointer;
      transition: all 0.3s linear;

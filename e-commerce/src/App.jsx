@@ -1,32 +1,24 @@
 // import IconCart from "./components/IconCart/IconCart";
 import NavBar from "./components/NavBar/NavBar"
-
+import {BrowserRouter,Routes,Route} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Swal from 'sweetalert2'
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <NavBar></NavBar>
-      <ItemListContainer></ItemListContainer>
-      {/* <ItemCount start={1} disabled={()=>
-        !start ? Swal.fire({
-          title: "Opps...",
-          text: "there isn´t any stock",
-          icon: "error"
-        }) : console.warm("there isn´t any stock")
-      } stock={20} onAdd={(quantity)=>
-      Swal.fire({
-        title:"Aggregate amount",
-        text: quantity,
-        icon: "success"
-      })
-       }></ItemCount> */}
-    
-      
+      <BrowserRouter>
+              <NavBar></NavBar>
+            <Routes>
+              <Route path="/" element={ <ItemListContainer/>}/>
+              <Route path="/category/:categoryId" element={ <ItemListContainer/>}/>
+              <Route path="/detail/:id" element={<ItemDetailContainer/>}/>
+              <Route path="*" element={<h3>Error 404</h3>}/>
+            </Routes>
+      </BrowserRouter>
     </>
   )
 }

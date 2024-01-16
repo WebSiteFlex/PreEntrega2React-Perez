@@ -1,30 +1,30 @@
 const listProducts = [
   {
-    id: 1,
+    id: "1",
     nameP: "Iphone 12 pro",
     img: "https://loop-mobile.co.uk/cdn/shop/products/iphone12_pro_max_gold_both_0efba546-88fb-40c0-b003-8a0207360063.jpg?v=1633000750",
     stock: 12,
     price: 874.000,
     description: "#",
-    category: "Phones",
+    category: "phones",
   },
   {
-    id: 1,
-    nameP: "Samsung Galaxy A50",
-    img: "https://cdn.dxomark.com/wp-content/uploads/medias/post-30837/samsung_galaxy_a50-1024x768.jpg",
+    id: "2",
+    nameP: "Samsung Newsroom",
+    img: "https://img.global.news.samsung.com/cl/wp-content/uploads/2019/01/Notebook-9-Pro-3-553x408.jpg",
     stock: 12,
     price: 266.000,
     description: "",
-    category: "Phones",
+    category: "notebook",
   },
   {
-    id: 1,
-    nameP: "Redmi Note 10",
-    img: "https://cdn.laredoute.com/products/8/3/b/83b58830d0c7b38f48e4901b8507d215.jpg?width=500&dpr=1",
+    id: "3",
+    nameP: "Atomic Habits",
+    img: "https://image-proxy-production.swag.com/convert/swag-prod/5ed96cf35310c31e1ca86abf.jpg?format=jpg&height=750",
     stock: 12,
     price: 467.000,
     description: "#",
-    category: "Phones",
+    category: "book",
   },
 ];
 
@@ -35,4 +35,19 @@ export const getProducts = ()=>{
             resolve(listProducts)
         }, 1000)
     })
+}
+export const getProductsByCategory = (categoryId)=>{
+  return new Promise((resolve)=>{
+      setTimeout(()=>{
+          resolve(listProducts.filter(prod => prod.category === categoryId))
+      }, 1000)
+  })
+}
+
+export const getProductsById = (id)=>{
+  return new Promise((resolve)=>{
+      setTimeout(()=>{
+          resolve(listProducts.find(prod => prod.id === id))
+      }, 1000)
+  })
 }

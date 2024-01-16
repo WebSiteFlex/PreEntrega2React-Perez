@@ -1,40 +1,56 @@
 
-import {useState,useEffect} from "react"
+import { useState, useEffect } from "react"
 import classIContainer from "./ItemListContainer.module.css"
 import ItemCount from "../ItemCount/ItemCount"
+import {Link} from "react-router-dom"
+import { getProducts,getProductsByCategory} from "../../asyncMock"
+import Swal from 'sweetalert2'
+import {useParams} from "react-router-dom"
 
-const ItemListContainer = () =>{
-    const [product,setProduct] = useState([])
+const ItemListContainer = () => {
+    const [product, setProduct] = useState([])
+    const {categoryId} = useParams()
 
-    useEffect(() =>{
-            fetch("https://api.mercadolibre.com/sites/MLA/search?q=celulares")
-            .then(response =>{
-                return response.json()
+    useEffect(() => {
+        // fetch("https://api.mercadolibre.com/sites/MLA/search?q=celulares")
+        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+
+        asyncFunction(categoryId)
+            .then(response => {
+                setProduct(response) 
             })
-            .then(result => setProduct(result.results.slice(0,6)))
-        },[])
-    
-    
-    return(
+            
+    }, [categoryId])
+
+
+    return (
         <>
             <h1 className={classIContainer.title}>Products</h1>
+            <Link to="/" className="btn btn-success">Back to home</Link>
             <div className={classIContainer.containerCards}>
-            {
-                product.map(l => {
-                    return (
-                        <div key={l.id} className={classIContainer.containerPhones}>
-                            <h2>{l.name}</h2>
-                            <img src={l.thumbnail} alt="img" className={classIContainer.img} />
-                            <p>${l.price}</p>
-                            <button>
-                                <ItemCount start={1} stock={20}></ItemCount>
-                            </button>
-                            <span>{l.category}</span>
-                        </div>
-                    )
-                })
-            }
-        </div>
+                {
+                    product.map(l => {
+                        return (
+                            <div key={l.id} className={classIContainer.containerPhones}>
+                                <h2>{l.nameP}</h2>
+                                <img src={l.img} alt="img" className={classIContainer.img} />
+                                <p>${l.price}</p>
+                                <button>
+                                    <ItemCount start={1} stock={20} onAdd={(quantity) =>
+                                        Swal.fire({
+                                            title: "Aggregate amount",
+                                            text: quantity,
+                                            icon: "success"
+                                        })
+                                    }></ItemCount>
+                                </button>
+                                <span>{l.category}</span>
+                                <Link to="/detail" className="btn btn-success">View Detail</Link>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </>
     )
 }
