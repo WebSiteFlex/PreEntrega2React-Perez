@@ -1,6 +1,7 @@
 import { useState } from "react"
 import classItem from "./ItemCount.module.css"
 
+
 const ItemCount = ({ stock, onAdd, start }) => {
     const [amount, setAmount] = useState(start)
 
@@ -14,6 +15,8 @@ const ItemCount = ({ stock, onAdd, start }) => {
             setAmount(amount - 1)
         }
     }
+
+       
 
     return (
         <section className={classItem.containerCounter}>

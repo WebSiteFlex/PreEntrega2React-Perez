@@ -34,14 +34,22 @@ const ItemListContainer = () => {
                             <div key={l.id} className={classIContainer.containerPhones}>
                                 <h2>{l.nameP}</h2>
                                 <img src={l.img} alt="img" className={classIContainer.img} />
-                                <p>${l.price}</p>
+                                <div className={classIContainer.containerPs}>
+                                    <span className={classIContainer.price}>${l.price}</span>
+                                    <p className={classIContainer.Stock}>Stock= {l.stock}</p>
+                                </div>
                                 <button>
-                                    <ItemCount start={1} stock={20} onAdd={(quantity) =>
+                                    <ItemCount start={1} stock={20} onAdd={(quantity) =>{
+
                                         Swal.fire({
                                             title: "Aggregate amount",
                                             text: quantity,
                                             icon: "success"
                                         })
+
+                                        localStorage.setItem("Stock", quantity);
+                                    }
+                                        
                                     }></ItemCount>
                                 </button>
                                 <span>{l.category}</span>
