@@ -6,7 +6,7 @@ const listProducts = [
     stock: 20,
     price: 874.000,
     description: "#",
-    category: "phones",
+    category: "Phones",
   },
   {
     id: "2",
@@ -15,7 +15,7 @@ const listProducts = [
     stock: 20,
     price: 266.000,
     description: "",
-    category: "notebook",
+    category: "Notebook",
   },
   {
     id: "3",
@@ -24,7 +24,7 @@ const listProducts = [
     stock: 20,
     price: 467.000,
     description: "#",
-    category: "book",
+    category: "Book",
   },
 ];
 
