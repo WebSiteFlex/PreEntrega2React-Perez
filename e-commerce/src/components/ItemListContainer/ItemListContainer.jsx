@@ -27,7 +27,7 @@ const ItemListContainer = () => {
             <h1 className={classIContainer.title}>Products</h1>
             <Link to="/" className="btn btn-success">Back to home</Link>
             <div>
-                <ItemList products={product}></ItemList>
+                <ItemList products={product} id={product.id}></ItemList>
             </div>
         </>
     )

@@ -14,13 +14,13 @@ const NavBar = () => {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className={classNav.li}>
-                                    <Link to="/category/phones">Cells</Link>
+                                    <Link to="/category/Phones">Cells</Link>
                                 </li>
                                 <li className={classNav.li}>
-                                    <Link to="/category/book">Book</Link>
+                                    <Link to="/category/Book">Book</Link>
                                 </li>
                                 <li className={classNav.li}>
-                                    <Link to="/category/notebook">Notebook</Link>
+                                    <Link to="/category/Notebook">Notebook</Link>
                                 </li>
 
 

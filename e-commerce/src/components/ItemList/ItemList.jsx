@@ -1,7 +1,7 @@
 import classItem from "./ItemList.module.css"
 import { Link } from "react-router-dom"
 
-const ItemList = ({ products }) => {
+const ItemList = ({ products,id }) => {
     return (
         <div className={classItem.containerCards}>
             {
@@ -15,7 +15,7 @@ const ItemList = ({ products }) => {
                                     <p className={classItem.Stock}>Stock= {l.stock}</p>
                                     <span>Category= {l.category}</span>
                                 </div>
-                                <Link to="/detail" className="btn btn-success">View Detail</Link>
+                                <Link to={`/detail/${id}`} className="btn btn-success">View Detail</Link>
                             </div>
                         )
                     })
@@ -24,3 +24,4 @@ const ItemList = ({ products }) => {
     )
 }
 export default ItemList
+
